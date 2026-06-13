@@ -66,13 +66,21 @@
   .step-title { font-size: 16px; font-weight: 500; margin-bottom: 10px; }
   .step-body { font-size: 14px; color: var(--text-2); line-height: 1.65; }
 
-  .pricing-box { max-width: 460px; margin: 56px auto 0; border: 1px solid var(--border-2); border-radius: var(--radius-lg); padding: 56px 48px 48px; text-align: center; }
-  .pricing-free { font-size: 76px; font-weight: 600; letter-spacing: -3px; line-height: 1; color: var(--green); margin-bottom: 16px; }
-  .pricing-context { font-size: 15px; color: var(--text-2); line-height: 1.6; margin-bottom: 32px; }
-  .pricing-btn { width: 100%; padding: 16px; background: var(--text); color: #fff; border: none; border-radius: var(--radius); font-size: 15px; font-weight: 500; cursor: pointer; font-family: inherit; transition: opacity 0.12s ease; }
+  .pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 760px; margin: 56px auto 0; align-items: stretch; }
+  .pricing-box { position: relative; border: 1px solid var(--border-2); border-radius: var(--radius-lg); padding: 44px 40px 40px; text-align: center; display: flex; flex-direction: column; }
+  .pricing-box.featured { border: 2px solid var(--green); }
+  .pricing-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--green); color: #fff; font-size: 12px; font-weight: 500; padding: 4px 14px; border-radius: 12px; white-space: nowrap; }
+  .pricing-plan { font-size: 13px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 18px; }
+  .pricing-amount { font-size: 60px; font-weight: 600; letter-spacing: -2.5px; line-height: 1; margin-bottom: 6px; }
+  .pricing-amount.free { color: var(--green); }
+  .pricing-unit { font-size: 14px; color: var(--text-3); margin-bottom: 22px; }
+  .pricing-context { font-size: 14px; color: var(--text-2); line-height: 1.6; margin-bottom: 28px; flex-grow: 1; }
+  .pricing-btn { width: 100%; padding: 15px; background: var(--text); color: #fff; border: none; border-radius: var(--radius); font-size: 14px; font-weight: 500; cursor: pointer; font-family: inherit; transition: opacity 0.12s ease; }
   .pricing-btn:hover { opacity: 0.9; }
-  .pricing-fine { font-size: 12px; color: var(--text-3); margin-top: 16px; }
-  .pricing-partner { display: inline-flex; align-items: center; gap: 5px; margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border); font-size: 13px; color: var(--text-2); width: 100%; justify-content: center; transition: color 0.12s ease; }
+  .pricing-btn.secondary { background: transparent; color: var(--text); border: 1px solid var(--border-2); }
+  .pricing-btn.secondary:hover { background: var(--bg-3); opacity: 1; }
+  .pricing-fine { font-size: 12px; color: var(--text-3); margin-top: 32px; text-align: center; }
+  .pricing-partner { display: inline-flex; align-items: center; gap: 5px; margin-top: 14px; font-size: 13px; color: var(--text-2); width: 100%; justify-content: center; transition: color 0.12s ease; }
   .pricing-partner:hover { color: var(--text); }
 
   .faq-head { text-align: center; }
@@ -95,6 +103,7 @@
   @media (max-width: 760px) {
     .nav-partner { display: none; }
     .steps-grid { grid-template-columns: 1fr; }
+    .pricing-grid { grid-template-columns: 1fr; }
     .faq-item { grid-template-columns: 1fr; gap: 10px; }
     .section { padding: 72px 24px; }
   }
@@ -189,14 +198,26 @@
 <section class="section section-center">
   <p class="section-label">Pricing</p>
   <h2 class="section-title">Get the hardware for free<br>with a Voice Cursor subscription.</h2>
-  <p class="section-sub">Subscribe to Voice Cursor for $144/year and we'll ship you the VoiceKit Stick at no extra cost.</p>
-  <div class="pricing-box">
-    <p class="pricing-free">Free</p>
-    <p class="pricing-context">The VoiceKit Stick is yours at no extra cost with a Voice Cursor subscription — $144/year ($12/month).</p>
-    <button class="pricing-btn" onclick="location.href='https://voicecursor.ai'">Get Voice Cursor + Free Hardware →</button>
-    <p class="pricing-fine">Free worldwide shipping · Cancel anytime · macOS 12+</p>
-    <a class="pricing-partner" href="https://voicecursor.ai">In partnership with Voice Cursor <i class="ti ti-external-link" style="font-size:13px;" aria-hidden="true"></i></a>
+  <p class="section-sub">Get the VoiceKit Stick free with a Voice Cursor subscription — or buy the hardware on its own.</p>
+  <div class="pricing-grid">
+    <div class="pricing-box featured">
+      <span class="pricing-badge">Best value</span>
+      <p class="pricing-plan">Bundle</p>
+      <p class="pricing-amount free">Free</p>
+      <p class="pricing-unit">hardware with Voice Cursor, $144/year</p>
+      <p class="pricing-context">The VoiceKit Stick is yours at no extra cost with a Voice Cursor subscription — that's $12/month for the app and the hardware.</p>
+      <button class="pricing-btn" onclick="location.href='https://voicecursor.ai'">Get Voice Cursor + Free Hardware →</button>
+      <a class="pricing-partner" href="https://voicecursor.ai">In partnership with Voice Cursor <i class="ti ti-external-link" style="font-size:13px;" aria-hidden="true"></i></a>
+    </div>
+    <div class="pricing-box">
+      <p class="pricing-plan">Hardware only</p>
+      <p class="pricing-amount">$99</p>
+      <p class="pricing-unit">one-time</p>
+      <p class="pricing-context">Just want the stick? Buy it on its own. Note: the VoiceKit Stick needs a Voice Cursor subscription to work — you'll need one to use it.</p>
+      <button class="pricing-btn secondary" onclick="location.href='https://voicecursor.ai'">Buy the hardware →</button>
+    </div>
   </div>
+  <p class="pricing-fine">Free worldwide shipping · One device per order · macOS 12+ · Ships in 5–7 business days</p>
 </section>
 
 <div class="divider"></div>
