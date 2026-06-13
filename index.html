@@ -34,7 +34,8 @@
   .nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 32px; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: rgba(255,255,255,0.85); backdrop-filter: saturate(180%) blur(12px); z-index: 10; }
   .nav-logo { font-size: 17px; font-weight: 600; letter-spacing: -0.3px; }
   .nav-right { display: flex; align-items: center; gap: 24px; }
-  .nav-partner { font-size: 13px; color: var(--text-2); display: flex; align-items: center; gap: 6px; }
+  .nav-partner { font-size: 13px; color: var(--text-2); display: flex; align-items: center; gap: 6px; transition: color 0.12s ease; }
+  .nav-partner:hover { color: var(--text); }
   .nav-partner i { font-size: 15px; }
   .nav-cta { font-size: 13px; font-weight: 500; background: var(--text); color: #fff; padding: 9px 18px; border-radius: 20px; border: none; cursor: pointer; font-family: inherit; }
 
@@ -71,12 +72,8 @@
   .pricing-btn { width: 100%; padding: 16px; background: var(--text); color: #fff; border: none; border-radius: var(--radius); font-size: 15px; font-weight: 500; cursor: pointer; font-family: inherit; transition: opacity 0.12s ease; }
   .pricing-btn:hover { opacity: 0.9; }
   .pricing-fine { font-size: 12px; color: var(--text-3); margin-top: 16px; }
-
-  .partner-banner { max-width: 620px; margin: 32px auto 0; display: flex; align-items: center; justify-content: center; gap: 18px; padding: 18px 24px; background: var(--bg-2); border-radius: var(--radius-lg); flex-wrap: wrap; }
-  .partner-text { font-size: 14px; color: var(--text-2); line-height: 1.5; }
-  .partner-text strong { font-weight: 500; }
-  .partner-link { font-size: 13px; color: var(--blue); white-space: nowrap; display: inline-flex; align-items: center; gap: 5px; padding: 9px 16px; border: 1px solid var(--border-2); border-radius: 18px; transition: background 0.12s ease; }
-  .partner-link:hover { background: var(--bg-3); }
+  .pricing-partner { display: inline-flex; align-items: center; gap: 5px; margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border); font-size: 13px; color: var(--text-2); width: 100%; justify-content: center; transition: color 0.12s ease; }
+  .pricing-partner:hover { color: var(--text); }
 
   .faq-head { text-align: center; }
   .faq { max-width: 760px; margin: 56px auto 0; }
@@ -108,7 +105,7 @@
 <nav class="nav">
   <span class="nav-logo">VoiceKit</span>
   <div class="nav-right">
-    <span class="nav-partner"><i class="ti ti-puzzle" aria-hidden="true"></i> In partnership with Voice Cursor</span>
+    <a class="nav-partner" href="https://voicecursor.ai"><i class="ti ti-puzzle" aria-hidden="true"></i> In partnership with Voice Cursor</a>
     <button class="nav-cta" onclick="location.href='https://voicecursor.ai'">Get VoiceKit — $144/yr</button>
   </div>
 </nav>
@@ -198,10 +195,7 @@
     <p class="pricing-context">The VoiceKit Stick is yours at no extra cost with a Voice Cursor subscription — $144/year ($12/month).</p>
     <button class="pricing-btn" onclick="location.href='https://voicecursor.ai'">Get Voice Cursor + Free Hardware →</button>
     <p class="pricing-fine">Free worldwide shipping · Cancel anytime · macOS 12+</p>
-  </div>
-  <div class="partner-banner">
-    <span class="partner-text">VoiceKit is built in partnership with <strong>Voice Cursor</strong>, the app that powers it all.</span>
-    <a class="partner-link" href="https://voicecursor.ai">Visit voicecursor.ai <i class="ti ti-external-link" style="font-size:14px;" aria-hidden="true"></i></a>
+    <a class="pricing-partner" href="https://voicecursor.ai">In partnership with Voice Cursor <i class="ti ti-external-link" style="font-size:13px;" aria-hidden="true"></i></a>
   </div>
 </section>
 
